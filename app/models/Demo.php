@@ -40,6 +40,16 @@ class Demo {
     public function set($index){
         $this->_index = $index;
     }
+    
+    /**
+     * 
+     * @param type $a
+     * @param type $b
+     * @return type
+     */
+    public function addNumber($a, $b){
+        return $a + $b;
+    }
 }
 
 ?>

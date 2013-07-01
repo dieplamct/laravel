@@ -38,13 +38,17 @@ class DemoCommand extends Command {
 	public function fire()
 	{
         //Get argument
-        $argc = $this->argument("test");
+        $strInput = $this->argument("test");
+        
+        $a = $this->argument("a");
+        $b = $this->argument("b");
         
         //Construct object to test
-        $demo = new Demo($argc);
+        $demo = new Demo($strInput);
         
         //output to console
-		$this->line("Test: " . $demo->get());
+		$this->line("String input: " . $demo->get());        
+        $this->line("Result add two number $a + $b = " . $demo->addNumber($a, $b));
 	}
 
 	/**
@@ -56,6 +60,8 @@ class DemoCommand extends Command {
 	{
 		return array(
 			array('test', InputArgument::REQUIRED, 'An example argument.'),
+            array('a', InputArgument::REQUIRED, 'An example argument.'),
+            array('b', InputArgument::REQUIRED, 'An example argument.'),
 		);
 	}
 
